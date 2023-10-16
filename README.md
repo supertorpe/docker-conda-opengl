@@ -10,7 +10,7 @@ docker build -t conda-opengl-pythondev:0.0.1 .
 # Run container
 
 ```
-docker run -it --rm --name conda-opengl-pythondev -v ./notebooks:/opt/notebooks -p 8888:8888 -p 5900:5900 conda-opengl-pythondev:0.0.1
+docker run -it --rm --name conda-opengl-pythondev -e UID=$(id -u) -e GID=$(id -g)  -v ./notebooks:/opt/notebooks -p 8888:8888 -p 5900:5900 conda-opengl-pythondev:0.0.1
 ```
 
 When Jupyter starts, it outputs the URL to the console:

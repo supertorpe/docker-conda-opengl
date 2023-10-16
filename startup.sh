@@ -10,7 +10,9 @@ sleep 3
 x11vnc -display ${DISPLAY}.0 -forever -shared -nopw &
 sleep 3
 
+echo "user:x:${UID}:${GID}:user:/tmp:/bin/bash" >> /etc/passwd
+
 # run program
 
-jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root
+sudo -u user bash -c '/opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser'
 

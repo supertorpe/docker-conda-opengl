@@ -4,7 +4,7 @@ RUN apt update && apt -y install mesa-utils x11vnc xvfb jwm sudo
 RUN conda install jupyter pyopengl freeglut -y --quiet &&\
     mkdir -p /opt/notebooks
 COPY startup.sh /app/startup.sh
-RUN chmod -R 777 /app
+RUN chmod -R 777 /app /opt/notebooks
 WORKDIR /app
 
 ENTRYPOINT ["/app/startup.sh"]
